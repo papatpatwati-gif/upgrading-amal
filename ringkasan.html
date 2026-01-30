@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png">
+  <link rel="stylesheet" href="ibadah-tracker.css">
+  <style>
+    body {
+      background-color: #f0f7f0; /* Warna hijau mint yang sangat lembut */
+    }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+  <h1>Ibadah Tracker AI</h1>
+  <p class="hadith-quote">"Amalan yang paling dicintai oleh Allah adalah yang paling terus-menerus (istiqomah) walaupun sedikit." <br>(HR. Bukhari & Muslim)</p>
+</header>
+
+<div class="statistik-kaffah" id="ibadah-box">
+  <nav class="main-nav">
+    <a href="program.html">Input Harian</a>
+    <a href="ringkasan.html" class="active">Ringkasan</a>
+    <a href="grafik.html">Grafik</a>
+    <a href="tafsir.html">Tafsir AI</a>
+    <a href="riwayat.html">Riwayat</a>
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Ganti Mode Gelap/Terang">🌙</button>
+  </nav>
+
+  <h4>📊 Ringkasan Ibadah</h4>
+
+  <!-- Ringkasan & Grafik -->
+  <h5>📋 Ringkasan Singkat Evaluasi</h5>
+  <p class="intro-text">
+    Bagian ini memberikan gambaran umum dari data yang sudah Anda simpan:
+  </p>
+  <div class="stat-line">
+    <span>Jumlah hari yang sudah tercatat</span><strong id="jumlahHariIbadah">0</strong>
+  </div>
+  <div class="stat-line">
+    <span>Rata-rata skor harian (0–15)</span><strong id="rataSkorIbadah">0</strong>
+  </div>
+
+  <!-- Rata-rata per Kategori (BARU) -->
+  <h5 style="margin-top: 20px;">📊 Rata-rata Skor per Kategori (0-3)</h5>
+  <div class="stat-grid">
+      <div class="stat-item">
+          <span>Sholat Wajib</span>
+          <strong id="rataSkorSholat">0.0</strong>
+      </div>
+      <div class="stat-item">
+          <span>Tilawah</span>
+          <strong id="rataSkorTilawah">0.0</strong>
+      </div>
+      <div class="stat-item">
+          <span>Dzikir</span>
+          <strong id="rataSkorDzikir">0.0</strong>
+      </div>
+      <div class="stat-item">
+          <span>Sedekah</span>
+          <strong id="rataSkorSedekah">0.0</strong>
+      </div>
+      <div class="stat-item">
+          <span>Menjaga Lisan</span>
+          <strong id="rataSkorLisan">0.0</strong>
+      </div>
+  </div>
+
+  <p class="intro-text" style="font-size: 0.8em; margin-top: 8px;">
+    <strong>Catatan:</strong> Skor harian dihitung dari 5 poin utama 
+    (sholat, tilawah, dzikir, sedekah, lisan). 
+    Skor tinggi bukan berarti Anda sudah sempurna, 
+    dan skor rendah bukan berarti Anda buruk. 
+    Ini hanya alat bantu untuk melihat arah dan perkembangan.
+  </p>
+
+  <!-- Fokus perbaikan AI akan muncul di sini jika data cukup -->
+  <div id="fokusPerbaikan" class="ai-suggestion-container" style="display:none;">
+    <!-- Tombol atau hasil AI akan dirender di sini oleh JavaScript -->
+  </div>
+
+</div>
+
+<!-- Skrip Aplikasi -->
+<script src="ibadah-tracker.js" defer></script>
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivxiu6WOD3VjrN-xj-DXZKNu-5veV9guSIjewa9uXrEGGuxqGdCwNn7BbwDTorIlz803fS5JQCpdNWxmb6xgZOhDmtCCqlA1U4kWN3ucLTCcPK3sO55pRGWvI3WLfOFOk3X7XIOVLzdPY2R0ZkDMvc0d-Jeq64bYx3H2uooXJ79qBxKYLAGQT57If7EG92/s320/dreamina-2026-01-16-9405-Create_a_high-resolution__ultra-sharp__a...-removebg-preview.png" 
+             alt="Kaffahmedia Logo" 
+             class="footer-logo">
+
+        <div class="footer-text-group">
+            <p>&copy; 2026 <span class="brand-highlight">KAFFAHMEDIA</span> DIGITAL PRODUCTION</p>
+            <div class="footer-line"></div>
+            <small class="footer-slogan">Membangun Generasi Ideologis dengan Literasi Digital</small>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

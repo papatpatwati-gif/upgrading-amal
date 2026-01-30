@@ -1,0 +1,878 @@
+/* =========================================================
+   VARS & GLOBAL
+========================================================= */
+:root {
+  --brand-color: #2D5A27;
+  --brand-color-light: #F0F4EF;
+  --accent-gold: #C5A059;
+  --danger-color: #B33A3A;
+  --danger-color-light: #FFF5F5;
+  --text-color: #2C3E50;
+  --text-color-light: #7F8C8D;
+  --border-color: #E2E8F0;
+  --bg-color: #FDFDFD;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+}
+
+/* Definisi variabel untuk Dark Mode */
+body.dark-mode {
+  --brand-color-light: #253223;
+  --danger-color-light: #451a1a;
+  --text-color: #E2E8F0;
+  --text-color-light: #A0AEC0;
+  --border-color: #4A5568;
+  --bg-color: #1A202C;
+
+  /* Override warna solid */
+  --specific-bg-light: #2D3748; /* Pengganti #fff */
+  --specific-bg-lighter: #1e293b; /* Pengganti #F4F7F6 */
+  --specific-text-brand: #68D391; /* Pengganti var(--brand-color) untuk teks */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  padding: 20px 10px 0;
+  background-color: var(--specific-bg-lighter, #F4F7F6);
+  background-image: radial-gradient(#2d5a2708 1px, transparent 1px);
+  background-size: 20px 20px;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: var(--text-color);
+}
+
+body.dark-mode {
+  background-image: radial-gradient(#ffffff09 1px, transparent 1px);
+}
+
+/* Animasi Transisi Halaman */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(8px); }
+}
+
+body {
+  animation: fadeIn 0.4s ease-out;
+}
+body.fade-out {
+  animation: fadeOut 0.4s ease-in;
+}
+/* =========================================================
+   HEADER UTAMA
+========================================================= */
+.main-header {
+  text-align: center;
+  padding: 10px 20px 0;
+}
+
+.main-header h1 {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--brand-color);
+  margin: 0;
+}
+
+.main-header .hadith-quote {
+  font-size: 0.85em;
+  color: var(--text-color-light);
+  margin: 4px 0 0 0;
+  font-style: italic;
+}
+
+/* =========================================================
+   CONTAINER UTAMA
+========================================================= */
+#ibadah-box {
+  background: var(--specific-bg-light, #fff);
+  border-radius: var(--radius-lg);
+  padding: 25px;
+  max-width: 550px; /* Dihapus: margin: 20px auto; */
+  margin: 15px auto 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+#ibadah-box::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--brand-color), var(--accent-gold));
+}
+
+/* =========================================================
+   NAVIGASI
+========================================================= */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--brand-color-light);
+  padding: 6px;
+  border-radius: var(--radius-md);
+  /* Properti untuk membuatnya "sticky" */
+  position: sticky;
+  top: 10px; /* Jarak dari atas viewport saat menempel */
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.07); /* Bayangan agar terlihat melayang */
+}
+
+.main-nav a {
+  flex: 1 1 0;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.85em;
+  font-weight: 500;
+  color: var(--brand-color);
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  transition: 0.25s;
+}
+
+.main-nav a.active {
+  background: var(--brand-color);
+  color: #fff;
+  border-color: var(--brand-color);
+  box-shadow: 0 4px 10px rgba(45, 90, 39, 0.2);
+}
+.main-nav a.active:hover {
+  color: #fff;
+}
+
+.dark-mode-toggle {
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  line-height: 1;
+  color: var(--brand-color);
+}
+.dark-mode-toggle:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   TYPOGRAPHY
+========================================================= */
+#ibadah-box h4 {
+  text-align: center;
+  font-size: 1.4em;
+  margin: 0;
+  color: var(--brand-color);
+}
+
+#ibadah-box h5 {
+  font-size: 1.05em;
+  margin: 0;
+  color: var(--specific-text-brand, var(--brand-color));
+  border-bottom: 2px solid var(--brand-color-light);
+  padding-bottom: 8px;
+}
+
+.intro-text,
+.section-intro {
+  font-size: 0.9em;
+  color: var(--text-color-light);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FORM & INPUT
+========================================================= */
+.form-ibadah {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-ibadah label {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.form-ibadah input[type="number"],
+.form-ibadah input[type="date"],
+.form-ibadah select,
+.form-ibadah textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-color);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-color); /* Tambahkan ini agar warna teks dinamis */
+}
+
+.form-ibadah input:focus,
+.form-ibadah select:focus,
+.form-ibadah textarea:focus {
+  border-color: var(--brand-color);
+  outline: none;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+}
+
+/* Style untuk input grup Quran */
+.quran-input-group {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+  align-items: end;
+}
+
+.quran-input-item label {
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.quran-input-group select,
+.quran-input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-color);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-color); /* Tambahkan ini juga */
+}
+
+.quran-input-group select:focus,
+.quran-input-group input:focus {
+  border-color: var(--brand-color);
+  outline: none;
+}
+
+/* Style untuk label wrapper (catatan harian + voice button) */
+.label-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.label-wrapper label {
+  margin-bottom: 0; /* Hapus margin bawah dari label di dalam wrapper */
+}
+
+.btn-voice {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+.btn-voice:hover {
+  background-color: var(--brand-color-light);
+}
+.btn-voice img {
+  width: 22px;
+  height: 22px;
+}
+.voice-status {
+  font-size: 0.8em;
+  color: var(--danger-color);
+}
+.hidden { display: none; }
+
+/* =========================================================
+   CEKLIST SUNNAH
+========================================================= */
+.ceklist-sunnah {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cek-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  font-size: 0.95em;
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.cek-item span {
+  line-height: 1.3;
+  color: var(--text-color);
+}
+
+.cek-item:hover {
+  border-color: var(--brand-color);
+}
+
+#ibadah-box input[type="checkbox"] {
+  width: 1.3em;
+  height: 1.3em;
+  margin-right: 12px;
+  accent-color: var(--brand-color);
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+.form-ibadah button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1em;
+  font-weight: 600;
+  background: var(--brand-color);
+  border: none;
+  border-radius: var(--radius-md);
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-ibadah button.btn-danger {
+  background: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  margin-top: 5px;
+}
+
+.btn-danger:hover {
+  background: var(--danger-color-light);
+}
+.form-ibadah button:hover {
+  opacity: 0.9;
+}
+
+/* =========================================================
+   INFO & QUOTE
+========================================================= */
+.info-box,
+.quote-box,
+.related-upgrade-box,
+.note {
+  font-size: 0.85em;
+  padding: 15px;
+  border-radius: var(--radius-md);
+  line-height: 1.6;
+}
+.note {
+  display: block;
+  text-align: center;
+  color: var(--text-color-light);
+}
+
+.quote-box {
+  background: var(--brand-color-light);
+  border-left: 4px solid var(--accent-gold);
+  font-style: italic;
+  color: var(--specific-text-brand, var(--brand-color));
+}
+
+.infaq-details-box {
+  background-color: var(--bg-color);
+  border: 2px dashed var(--brand-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.infaq-method {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--brand-color);
+}
+
+.infaq-number {
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 8px 0;
+  color: var(--text-color);
+}
+
+/* =========================================================
+   STAT & CHART
+========================================================= */
+.stat-line {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin: 8px 0;
+  border-bottom: 1px solid var(--brand-color-light);
+}
+.stat-line strong {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.stat-item {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  text-align: center;
+}
+
+.stat-item span {
+  display: block;
+  font-size: 0.85em;
+  color: var(--text-color-light);
+  margin-bottom: 4px;
+}
+
+
+.riwayat-chart-box {
+  background: var(--brand-color-light);
+  border-radius: var(--radius-lg);
+  padding: 15px;
+  border: 1px solid var(--border-color);
+}
+
+.riwayat-chart-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 55%;
+}
+
+.riwayat-chart-wrap canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* =========================================================
+   PROGRESS BAR RAMADHAN
+========================================================= */
+#progressRamadhanContainer {
+  background: var(--brand-color-light);
+  border-radius: var(--radius-md);
+  padding: 15px;
+}
+
+.progress-bar-container {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 99px;
+  height: 24px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.progress-bar-inner {
+  height: 100%;
+  background: linear-gradient(90deg, var(--brand-color), #4caf50);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  font-weight: 600;
+  transition: width 0.5s ease-in-out;
+}
+
+/* =========================================================
+   PRAYER SCHEDULE
+========================================================= */
+.prayer-schedule-container {
+  background: var(--brand-color-light);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.prayer-schedule-container .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.prayer-schedule-container .form-group label {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.prayer-times-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 10px;
+  text-align: center;
+}
+
+.prayer-time-item {
+  background: var(--bg-color);
+  padding: 10px 5px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.prayer-time-item span {
+  display: block;
+  font-size: 0.8em;
+  color: var(--text-color-light);
+}
+
+
+/* =========================================================
+   AI SECTION
+========================================================= */
+.fokus-perbaikan-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: var(--brand-color-light);
+  border-left: 4px solid var(--brand-color);
+  border-radius: var(--radius-md);
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+.btn-ai-suggest {
+  width: 100%;
+  margin-top: 12px;
+  padding: 12px;
+  font-size: 0.9em;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--brand-color), #4a7c44);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-ai-suggest:disabled {
+  background: var(--text-color-light);
+  cursor: not-allowed;
+}
+
+/* =========================================================
+   AI RESPONSE & ARABIC
+========================================================= */
+.ai-response-container,
+#tafsirResultContainer {
+  background-color: var(--brand-color-light);
+  border-left: 5px solid var(--brand-color);
+  padding: 20px;
+  border-radius: var(--radius-md);
+  line-height: 1.7;
+  color: var(--text-color);
+  white-space: pre-wrap; /* Ini kunci agar baris baru/enter dari AI tetap terjaga */
+}
+
+/* Mempercantik tampilan Markdown (teks tebal/header) */
+.ai-response-container strong,
+#tafsirResultContainer strong {
+    color: var(--specific-text-brand, var(--brand-color));
+}
+
+.ai-response-container h3,
+#tafsirResultContainer h3 {
+    margin-top: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 5px;
+}
+
+
+
+
+.quran-verse-arabic {
+  font-family: "Amiri", serif;
+  font-size: 1.6em;
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  margin: 15px 0;
+  padding: 10px;
+  background: var(--brand-color-light);
+  border-radius: 8px;
+  color: var(--specific-text-brand, var(--brand-color));
+}
+
+.translation-text {
+  font-size: 0.9em;
+  font-style: italic;
+  color: var(--text-color-light);
+  border-left: 3px solid var(--accent-gold);
+  padding-left: 10px;
+  margin-bottom: 15px;
+}
+
+.ai-section-title {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  text-transform: uppercase;
+  margin-top: 15px;
+}
+
+/* =========================================================
+   RIWAYAT LIST
+========================================================= */
+.riwayat-ibadah {
+  margin-top: 6px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 8px;
+  background: var(--bg-color);
+}
+
+.riwayat-item {
+  font-size: 0.9em;
+  border-bottom: 1px solid var(--border-color);
+  padding: 10px 4px;
+  line-height: 1.6;
+}
+
+.riwayat-item:last-child {
+  border-bottom: none;
+}
+
+.riwayat-item .tgl {
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.riwayat-item .skor {
+  font-weight: 700;
+  color: var(--specific-text-brand, var(--brand-color));
+}
+
+.riwayat-item .btn-edit {
+  float: right;
+  background: var(--brand-color-light);
+  border: 1px solid var(--border-color);
+  color: var(--specific-text-brand, var(--brand-color));
+  font-size: 0.8em;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.riwayat-item .btn-edit:hover {
+  background: var(--border-color);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+.main-footer {
+  padding: 40px 20px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  opacity: 0.8;
+}
+
+.footer-text-group p {
+  margin: 0;
+  font-size: 0.8em;
+  color: var(--text-color-light);
+  letter-spacing: 0.5px;
+}
+
+.footer-text-group .brand-highlight {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.footer-line {
+  width: 50px;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 8px auto;
+}
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+@media (max-width: 480px) {
+  body {
+    padding: 10px 6px;
+  }
+
+  #ibadah-box {
+    padding: 18px;
+  }
+
+  .main-nav a {
+    font-size: 0.78em;
+    padding: 8px 6px;
+  }
+
+  #ibadah-box h4 {
+    font-size: 1.15em;
+  }
+}
+
+@media (max-width: 420px) {
+  .main-nav a {
+    flex-basis: calc(50% - 4px);
+  }
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 400px) {
+  .quran-input-group {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 360px) {
+  body {
+    font-size: 15px;
+  }
+
+  #ibadah-box {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .prayer-times-display {
+    grid-template-columns: 1fr 1fr; /* 2 columns on very small screens */
+  }
+}
+
+.next-prayer-countdown {
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--brand-color);
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--bg-color);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+}
+
+.next-prayer-countdown span {
+  color: var(--accent-gold);
+}
+
+/* =========================================================
+   TOMBOL KONFIRMASI WA
+========================================================= */
+.btn-whatsapp-confirm {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #25D366;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1em;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp-confirm:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.3);
+}
+
+/* =========================================================
+   TOMBOL SALIN NOMOR REKENING
+========================================================= */
+.infaq-number-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  margin: 8px 0;
+}
+
+.btn-copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--brand-color-light);
+  border: 1px solid var(--border-color);
+  color: var(--brand-color);
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-copy:hover {
+  background-color: var(--border-color);
+  transform: scale(1.05);
+}
+
+.btn-copy.copied {
+  background-color: #28a745; /* Warna hijau untuk sukses */
+  color: #fff;
+}
+
+/* Animasi untuk tombol voice */
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png">
+  <title>Riwayat & Progress - Ibadah Tracker AI</title>
+  <link rel="stylesheet" href="ibadah-tracker.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="main-header">
+  <h1>Ibadah Tracker AI</h1>
+  <p class="hadith-quote">"Amalan yang paling dicintai oleh Allah adalah yang paling terus-menerus (istiqomah) walaupun sedikit." <br>(HR. Bukhari & Muslim)</p>
+</header>
+
+<div id="ibadah-box">
+  <nav class="main-nav">
+    <a href="program.html">📝 Input Harian</a>
+    <a href="ringkasan.html">📊 Ringkasan</a>
+    <a href="grafik.html">📈 Grafik</a>
+    <a href="tafsir.html">📖 Tafsir AI</a>
+    <a href="riwayat.html" class="active">📆 Riwayat</a>
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Ganti Mode Gelap/Terang">🌙</button>
+  </nav>
+
+  <!-- Progress Bar 30 Juz -->
+  <div id="progressRamadhanContainer">
+    <h5>⭐ Progress Khatam 30 Juz</h5>
+    <div class="progress-bar-container">
+      <div id="quranProgressBar" class="progress-bar-inner" style="width: 0%;">0%</div>
+    </div>
+    <div class="progress-summary" style="text-align: right; font-size: 0.85em; margin-top: 6px; color: var(--text-color-light);">
+      Telah dibaca: <strong id="juzDibaca" style="color: var(--text-color); font-weight: 600;">0</strong> dari 30 Juz.
+    </div>
+  </div>
+
+  <!-- Riwayat List -->
+  <h5>Riwayat Evaluasi Harian</h5>
+  <div id="riwayatIbadah" class="riwayat-ibadah">
+    <!-- Riwayat akan di-render oleh JavaScript di sini -->
+  </div>
+
+  <div style="text-align: center; margin-top: 15px;">
+    <button id="hapusSemuaIbadah" class="btn-danger">Hapus Semua Data</button>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="ibadah-tracker.js" defer></script>
+
+</body>
+</html>

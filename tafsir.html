@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh3gQkeVH78fp6ZEMmEaRq5oaoxRFNTaevzVyYfwVfPhc8R-c7jAL55KWAFarjRrm87FTAn-lpF0zrlsgLyPmVShLcs0gHVCw7brSYIWWifdQS6O1Fr3lOjQabP7LQ7sPkjmWqpzmb0anHD-8cwD7mYj34qifMMr3gdDOgseoobf79ylrFsH-P70WoQSX9W/s320/dreamina-2026-01-30-8710-Minimalist_flat_vector_logo__combining_I...-removebg-preview.png">
+  <title>Tafsir AI - Ibadah Tracker</title>
+  <link rel="stylesheet" href="ibadah-tracker.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Amiri:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Sedikit style tambahan untuk halaman tafsir */
+    #tafsirResultContainer {
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--specific-bg-light, #fff);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      min-height: 100px;
+      line-height: 1.7;
+    }
+    #tafsirResultContainer h5 {
+        margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+
+<header class="main-header">
+  <h1>Ibadah Tracker AI</h1>
+  <p class="hadith-quote">"Maka apakah mereka tidak memperhatikan Al Quran ataukah hati mereka terkunci?" <br>(QS. Muhammad: 24)</p>
+</header>
+
+<div id="ibadah-box">
+  <nav class="main-nav">
+    <a href="program.html">📝 Input Harian</a>
+    <a href="ringkasan.html">📊 Ringkasan</a>
+    <a href="grafik.html">📈 Grafik</a>
+    <a href="tafsir.html" class="active">📖 Tafsir AI</a>
+    <a href="riwayat.html">📆 Riwayat</a>
+    <button id="darkModeToggle" class="dark-mode-toggle" title="Ganti Mode Gelap/Terang">🌙</button>
+  </nav>
+
+  <div style="display: flex; align-items: center; gap: 15px; justify-content: center; flex-wrap: wrap;">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkonr-ja2dIqObjiZkOzzVeBBSFXb6RP38I3skoXFEyZY2oWog1h6ENBhLfQqQDQ6RxmO1RYSqqIXOFGU5eCD0j-TlfPbS5yjfJOFtPzSG0h5FPBVidyxjyxhPzsjMkMtHV-R3YaYWavDqYnIlVv5QuH8MTIsG623F6D1G1KoZv9uuigKNilukLNqS2NcD/s320/ibnu-removebg-preview.png" alt="Kitab Tafsir Ibnu Katsir" style="width: 60px; height: auto; object-fit: contain;">
+    <h4>📖 Tafsir Al-Qur'an (Ibnu Katsir)</h4>
+  </div>
+  <p class="intro-text">Pilih surat dan ayat yang ingin Anda ketahui tafsirnya berdasarkan metodologi Tafsir Ibnu Katsir, dengan bantuan AI.</p>
+
+  <div class="quran-input-group">
+    <div class="quran-input-item">
+      <label for="quranSurah">Surat</label>
+      <select id="quranSurah"></select>
+    </div>
+    <div class="quran-input-item">
+      <label for="quranAyatStart">Dari Ayat</label>
+      <input type="number" id="quranAyatStart" placeholder="No.">
+    </div>
+  </div>
+  <button id="btnDapatkanTafsir" class="btn-ai-suggest" style="margin-top: 15px;">🔍 Dapatkan Tafsir</button>
+
+  <div id="tafsirResultContainer"><p>Hasil tafsir akan muncul di sini...</p></div>
+</div>
+
+<script src="ibadah-tracker.js" defer></script>
+
+</body>
+</html>
